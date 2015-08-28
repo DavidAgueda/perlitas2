@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="../js/libs/jquery/jquery.js" type="text/javascript">
+    </head>
+    <body>
+        <progress id="barra" value="22" max="1000"></progress> 
+        <div>TODO write content</div>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $.ajax({url: "demo_test.php", success: function(result){
+                    $("#barra").val(result);
+                }});
+            
+             $("#barra").progreso({
+                                           paso:10,
+                                           time:200
+                                           });
+                       });
+            });
+        </script>
+    </body>
+</html>
