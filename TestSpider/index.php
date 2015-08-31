@@ -20,7 +20,6 @@ and open the template in the editor.
             <li><a href="PHPbarra/index.html">pasar caracteres como ALT+ENTER a Utf8</a></li>
             <li><a href="GeoLoc/index.php">GeoLoc</a></li>
             <li><a href="spider/">spider</a></li>
-            <li><a href="TestSpider/">TestSpider</a></li>
             <li><a href="feo/">error 404</a></li>
             
             https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/
