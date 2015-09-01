@@ -48,9 +48,15 @@ and open the template in the editor.
             $Enlaces = unique_multidim_array($Enlaces,'enlace');
             
             $index = 0;
+            $EnlacesTmp = array();
             foreach ($Enlaces as $Enlace) {
-                $EnlacesTmp[$index]['enlace'] = $Enlace['enlace'];
-                $EnlacesTmp[$index]['hijos'] = spider($Enlace['enlace']);
+                if(strpos($Enlace['enlace'], saca_dominio($url))=== false){
+                    $EnlacesTmp[$index]['enlace'] = $Enlace['enlace'];
+                } else {
+                    $EnlacesTmp[$index]['enlace'] = $Enlace['enlace'];
+                    $EnlacesTmp[$index]['hijos'] = spider($Enlace['enlace']);
+                }
+                
                 $index++;
             }
             $Enlaces = $EnlacesTmp;
@@ -91,6 +97,11 @@ and open the template in the editor.
             }
             return $temp_array;
         }
+        foreach ($resultado as $value) {
+            echo '<hr>';
+             print_r($value);
+        }
+        //print_r($resultado);
         ?>
 
 
