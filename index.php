@@ -20,10 +20,13 @@ and open the template in the editor.
             <li><a href="PHPbarra/index.html">pasar caracteres como ALT+ENTER a Utf8</a></li>
             <li><a href="GeoLoc/index.php">GeoLoc</a></li>
             <li><a href="spider/">spider</a></li>
+            <li><a href="spider2/">spider vs2</a></li>
+            <li><a href="spider2/">spider vs2</a></li>
             <li><a href="TestSpider/">TestSpider</a></li>
             <li><a href="feo/">error 404</a></li>
             
-            https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/
+            https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/ <br>
+	    http://www.elclubdelprogramador.com/2014/12/11/snippets-determina-el-estado-de-enlaces-de-una-pagina-web-en-php/ <br>
             http://www.phperos.net/foro/index.php?topic=5672.0
         </ul>
     </body>

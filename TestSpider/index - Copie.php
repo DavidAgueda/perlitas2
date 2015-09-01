@@ -15,10 +15,11 @@ and open the template in the editor.
         // put your code here
         ?>
         <ul>
-            <li><a href="text1.php">Test</a></li>
-            <li><a href="text2.php">Test1</a></li>
-			
+            <li><a href="juego/index.php">juego</a></li>
 
-
+            
+            https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/
+            http://www.phperos.net/foro/index.php?topic=5672.0
+        </ul>
     </body>
 </html>

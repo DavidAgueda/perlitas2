@@ -12,12 +12,13 @@ and open the template in the editor.
     <body>
         <ul>
             <li>detectar si es un enlace interno o externo</li>
-            <li>deterctar si es un error 404</li>
+            <li>deterctar si es un error 40</li>
             <li>si es un enlace interno y no es un error 404 entrar en el enlace si repetir proceso</li>
         </ul>
         <?php
         $url1 = "http://localhost/projets/Perlitas/";
-        function spider ($url) {
+
+        function spider($url) {
             $ch = curl_init();
             curl_setopt($ch, CURLOPT_URL, $url);
             curl_setopt($ch, CURLOPT_HEADER, true);
@@ -27,7 +28,7 @@ and open the template in the editor.
             curl_close($ch);
 
             //var_dump($html);
-            if (strpos($html, '404') !== false) {
+            if (strpos($html, ' 404 ') === false) {
                 $dom = new DOMDocument();
                 @$dom->loadHTML($html);
 
@@ -40,34 +41,59 @@ and open the template in the editor.
                     $image[$i]['enlace'] = $img->getAttribute('href');
 
                     $rest = substr($image[$i]['enlace'], 0, 4);
-
-                    if ($rest != 'http' || $rest != 'www.') {
+                    if (strpos($image[$i]['enlace'], 'http') === false) {
                         $image[$i]['enlaceDominio'] = $url . $img->getAttribute('href');
-             // si lo pongo da error           //$image[$i]['hijos'] = spider($image[$i]['enlaceDominio']); 
                     }
-                   
+                    else {
+                        $image[$i]['enlaceDominio'] = $img->getAttribute('href');
+                    }
 
-//			if(preg_match("/hola/", $image))
-//			{
-//				$imagen_final = $image;
-//			}
+                    foreach ($image as $link) {
+                        if (in_array('spider2/', $link)) {
+                            $image[$i]['seguir'] = '<h4>esta</h4>';
+                        } else {
+                            if (strpos($image[$i]['enlaceDominio'], saca_dominio($url)) !== false) {
+                                // $image[$i]['visitar'] = saca_dominio($url);
+         //                        if ($nivel <1){
+                                     $image[$i]['hijos'] = spider($image[$i]['enlaceDominio']);
+         //                        }
+
+                             }
+                        }
+                    }
+                    
                 }
             } else {
                 return 'Error 404';
             }
-            return $image;
+            if(isset($image)){
+                 return $image;
+            }else{
+                 return 'vacio';
+            }
+//            return $image;
         }
+
         //var_dump(spider ($url1));
-        var_dump(spider ('http://localhost/projets/Perlitas/TestSpider/'));
+//        var_dump($resultado = spider('http://localhost/projets/Perlitas/'));
         echo '<hr>';
-        var_dump(spider ('http://localhost/projets/Perlitas/'));
+        
+        $resultado = spider('http://localhost/projets/test/public_html/');
+        
+        var_dump($resultado);
+        var_dump($resultado[0]['hijos']);
 
         function dameURL() {
-            $url = "http://" . $_SERVER['HTTP_HOST'] . ":" . $_SERVER['SERVER_PORT']. $_SERVER['REQUEST_URI'];
+            $url = "http://" . $_SERVER['HTTP_HOST'] . ":" . $_SERVER['SERVER_PORT'] . $_SERVER['REQUEST_URI'];
             return $url;
         }
 
-        echo '\\';
+        function saca_dominio($url) {
+            $protocolos = array('http://', 'https://', 'ftp://', 'www.');
+            $url = explode('/', str_replace($protocolos, '', $url));
+            return $url[0];
+        }
+
         ?>
 
 
