@@ -65,7 +65,7 @@ and open the template in the editor.
           
         echo '<hr>';
         
-        $resultado = spider('http://localhost/projets/test/public_html/');
+        $resultado = spider( 'http://www.gitesdesejour.com/web/accueil');
         
         var_dump($resultado);
         var_dump($resultado[0]['hijos'][0]);

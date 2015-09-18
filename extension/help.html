@@ -1,0 +1,113 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="SHORTCUT ICON" href="favicon.ico" />
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <style>
+            h1{
+                font-size: 3em !important;
+            }
+            ul{
+                font-size: 20px;
+                padding-left: 7%;
+            }
+
+
+
+        </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="popup.html">Geoloc</a>
+                    <a class="navbar-brand" href="">Aide<hr></a>
+                </div>
+            </div>
+
+        </nav>
+
+        <!-- Main jumbotron for a primary marketing message or call to action -->
+        <div class="jumbotron">
+            <div class="container">
+                <h1>Pour réaliser le géocodage d'un fichier CSV</h1>
+            </div>
+        </div>
+
+        <div class="container">
+            <!-- Example row of columns -->
+            <div class="row">
+                <h2>Format du fichier à géolocaliser :</h2>
+                <ul>
+                    <li>Le fichier doit être un .csv avec un séparateur ';'.</li>
+                    <li>Le formatage des données est en UTF8 ou en ANSI.</li>
+                    <li>L’ordre des colonnes est libre, vous choisissez les 
+                        colonnes utiles à la géolocalisation (adresse, commune, 
+                        code postal, etc.) au moment de l’import du fichier.</li>
+                    <li>Le fichier contient une ligne d’en tête. S’il n’en contient 
+                        pas, il est nécessaire de le préciser au moment de l’import 
+                        du fichier.</li>
+                </ul>
+                <h2>Procédure à suivre :</h2>
+                <ul>
+                    <li><b>Choisissez un fichier</b> grâce au formulaire, en glissé-déposé 
+                        ou à l’aide de l’exploreur.</li>
+                    <li><b>Précisez les colonnes utiles</b> à la géolocalisation et si 
+                        le fichier ne contient pas d’en tête.</li>
+                    <li><b>Cliquez sur le bouton</b> « Rechercher les adresses » ou 
+                        « Rechercher les coordonnées » et vous serez redirigé 
+                        vers une page web avec une barre de progression.</li>
+                    <li>Quand le processus est terminé, <b>un bouton pour télécharger 
+                            le fichier va s’afficher</b>.</li>
+                    <li>Si vous quittez cette page web avant la fin du processus, 
+                        vous perdez votre fichier.</li>
+                </ul>
+                <h2>Format du fichier à géolocaliser :</h2>
+                <ul>
+                    <li>Cet outil emploie la Base Adresse Nationale (BAN) sous 
+                        licence ODbL mise à disposition par OpenstreetMap (la BANO). 
+                        Pour plus d’information : <a href="http://openstreetmap.fr/blogs/cquest/bano-banco" target="_blank">Openstreetmap.fr</a></li>
+                    <li>2 évolutions majeures ont été apportées à l’API originel :
+                        <ul>
+                            <li>Il n’y a pas de limite de taille au fichier CSV 
+                                en entrée (contrairement aux 2<i>Mo</i> imposés par 
+                                l’API originel).</li>
+                            <li>Nous pouvons effectuer plusieurs opérations en 
+                                même temps, sur le même serveur.</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <hr>
+            <p id="alu"></p>
+            <footer>
+                <p>&copy; <a href="http://www.articque.com/" target="_blank">Articque</a> 2015</p>
+            </footer>
+        </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
+
+        <script src="js/vendor/bootstrap.min.js"></script>
+        <script src="js/main.js"></script>
+        <!--        <script src="js/DropArea.js"></script>
+                <script src="js/DropArea2.js"></script>-->
+    </body>
+</html>
