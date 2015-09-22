@@ -1,143 +1,22 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
     <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="apple-touch-icon" href="apple-touch-icon.png">
-        <LINK REL="SHORTCUT ICON" HREF="favicon.ico" />
-
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" href="css/main.css">
-
-        <style>
-
-            .jumbotron{
-                padding: 0;
-            }
-            #contentColumns div, #contentColumns2 div{
-                margin: 5px;
-                border: 1px solid #aaa;
-                border-radius: 5px;
-                /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f9f9+0,eaeaea+47,dbdbdb+100 */
-                background: #f9f9f9; /* Old browsers */
-                background: -moz-linear-gradient(top, #f9f9f9 0%, #eaeaea 47%, #dbdbdb 100%); /* FF3.6+ */
-                background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f9f9f9), color-stop(47%,#eaeaea), color-stop(100%,#dbdbdb)); /* Chrome,Safari4+ */
-                background: -webkit-linear-gradient(top, #f9f9f9 0%,#eaeaea 47%,#dbdbdb 100%); /* Chrome10+,Safari5.1+ */
-                background: -o-linear-gradient(top, #f9f9f9 0%,#eaeaea 47%,#dbdbdb 100%); /* Opera 11.10+ */
-                background: -ms-linear-gradient(top, #f9f9f9 0%,#eaeaea 47%,#dbdbdb 100%); /* IE10+ */
-                background: linear-gradient(to bottom, #f9f9f9 0%,#eaeaea 47%,#dbdbdb 100%); /* W3C */
-                filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f9f9', endColorstr='#dbdbdb',GradientType=0 ); /* IE6-9 */
-            }
-            #contentColumns label, input[type=checkbox] {
-                cursor:pointer;
-            }
-
-
-        </style>
-
-        <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <a class="navbar-brand" href="">Geoloc<hr></a>
-                    <a class="navbar-brand" href="help.html">Aide</a>
-                </div>
-            </div>
-
-        </nav>
-
-        <!-- Main jumbotron for a primary marketing message or call to action -->
-        <div class="jumbotron">
-            <div class="container"> 
-                <h1><img src="img/biglogo.png" alt="logo Articque" style="width:35%;height:35%;"></h1>
-
-                <!--<p>Moteur de Géolocalisation à usage interne basé sur la BANO et l’API fournit par « data.gouv.fr »</p>-->
-            </div>
-        </div>
-
-        <div class="container">
-            <!-- Example row of columns -->
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Retourne des coordonnées, grâce aux adresses.</h2>
-                    <form id='formSearchCsv' action="http://10.37.5.11/adresse.php" method="post" enctype="multipart/form-data">
-                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/search/csv/"/> 
-                        <!--<p id="contentColumnsSlips">Glisser un fichier ici, ou choisir un chemin de destination’</p>-->
-                        <input id ='fileSearch' class=" searchFile" type="file" name="data" 
-                               onchange="handleFileSelect(event, '#contentColumns')" /> 
-                        <p id='contentColumns'></p>
-                        <input id="btnPHP" type="submit" class="btn btn-default" value="Rechercher les coordonnées" title="Rechercher" />
-                    </form>
-                </div>
-
-                <div class="col-md-6">
-                    <h2>Retourne des adresses, grâce aux coordonnées.</h2>
-                    <form action="http://10.37.5.11/adresse.php" method="post" enctype="multipart/form-data">
-                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/reverse/csv/"/> 
-                        <!--<p  id="contentColumns2Slips">Glisser un fichier ici, ou choisir un chemin de destination’</p>-->
-                        <input id ='fileReverse' class="searchFile" type="file" name="data" onchange="handleFileSelect(event, '#contentColumns2')" /> 
-                        <p id='contentColumns2'></p>
-                        <input id="btnPHP" type="submit" class="btn btn-default" value="Rechercher les adresses" title="Rechercher" />
-                    </form>
-
-                </div>
-            </div>
-            <hr/>
-<!--            <div class="row">
-                <div class="col-md-4">
-                    <h3>Recherche par adresse</h3>
-                    <table>
-                        <tr>
-                            <td><label>Adresse : </label></td>
-                            <td><input id="adresse" name ="adresse" type="text" title="adresse" value=""></td>
-                        </tr>
-                    </table>
-                    </br></br>
-                    <input id="rcParAdresse" class="btn btn-default" type="button" title="Rechercher adresse" value="Rechercher adresse">
-                </div>
-                <div class="col-md-4">
-                    <h3>Recherche par position</h3>
-                    <table>
-                        <tr>
-                            <td><label>Longitude : </label></td>
-                            <td><input id="lon" name ="longitude" type="text" title="longitude" ></td>
-                        </tr>
-                        <tr>
-                            <td><label>Latitude : </label></td>
-                            <td><input id="lat" name ="latitude" type="text" title="latitude" ></td>
-                        </tr>
-                    </table>
-                    </br>
-                </div>
-                <div class="col-md-4">
-                    <h3>Resultat</h3>
-                    <div id="div1" class="row"></div>
-                </div>
-            </div>-->
-
-<!--            <hr>-->
-            <p id="alu"></p>
-            <footer>
-                <p>&copy; <a href="http://www.articque.com/" target="_blank">Articque</a> 2015</p>
-            </footer>
-        </div> <!-- /container -->        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.js"><\/script>')</script>
-
-        <script src="js/vendor/bootstrap.min.js"></script>
-        <script src="js/main.js"></script>
-        <!--        <script src="js/DropArea.js"></script>
-                <script src="js/DropArea2.js"></script>-->
+        <h1>Test Articque</h1>
+        <a href="http://www.articque.com/" target="_blank">Test</a>
+        <form action="http://api.bit.ly/shorten?version=2.0.1">
+            <input type="text" name="longUrl">
+            <input type="submit" value="acortar">
+        </form>
+        <div>TODO write content</div>
     </body>
 </html>
