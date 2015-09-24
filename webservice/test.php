@@ -24,7 +24,7 @@ function TestURL($url){
 //    $html = htmlentities(file_get_contents($url));
     $html = file_get_contents($url);
     libxml_use_internal_errors(true);
-//    var_dump($html);
+//    var_dump(utf8_encode($html));
     
     $dom = new DOMDocument();
     $dom->loadHTML($html);
@@ -65,19 +65,20 @@ function TestURL($url){
         $result['Strong'][] = $Strong->nodeValue;
     }
     
-    $validW3C = json_decode (file_get_contents('https://validator.w3.org/check?uri='.$url.'/&output=json'));
-    foreach ($validW3C->messages as $message){
-        if ($message->type == 'error'){
-            $result['W3C'] = 'Contiene Errores';
-            break;
-        }
-    }
+//    $validW3C = json_decode (file_get_contents('https://validator.w3.org/check?uri='.$url.'/&output=json'));
+//    foreach ($validW3C->messages as $message){
+//        if ($message->type == 'error'){
+//            $result['W3C'] = 'Contiene Errores';
+//            break;
+//        }
+//    }
 
-
-    return $result;
+/* pongo en json para poder usar en ajax*/
+    return json_encode($result); 
+//    return $result;
 }
 
-//var_dump(TestURL('http://www.comocreartuweb.com'));
+//var_dump(TestURL('http://www.alteor.fr'));
 
     $HTTP_RAW_POST_DATA = isset($HTTP_RAW_POST_DATA) ? $HTTP_RAW_POST_DATA : '';
     $server->service($HTTP_RAW_POST_DATA);

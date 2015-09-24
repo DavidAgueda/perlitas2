@@ -24,6 +24,8 @@ and open the template in the editor.
             <li><a href="spider2/">spider vs2</a></li>
             <li><a href="TestSpider/">TestSpider</a></li>
             <li><a href="filadeSpera/">Fila de espera</a></li>
+            <li><a href="webservice/">webService</a></li>
+            <li><a href="extension//">Extension</a></li>
 
             
             https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/ <br>
