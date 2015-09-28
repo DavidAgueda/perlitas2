@@ -17,5 +17,11 @@
 console.log("hola");
 
 //chrome.tabs.onUpdated.addListener(function (){
-    $('h1').css('background-color','red');
-//})
+
+$("img").css({height:'10px',width:'10px'});
+$("img").mouseover(function(){
+    $(this).css({height:$(this).attr("height"),width:$(this).attr("width")});
+});
+$("img").mouseout(function(){
+    $("img").css({height:'10px',width:'10px'});
+});
