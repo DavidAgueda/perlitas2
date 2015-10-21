@@ -26,6 +26,8 @@ and open the template in the editor.
             <li><a href="filadeSpera/">Fila de espera</a></li>
             <li><a href="webservice/">webService</a></li>
             <li><a href="extension//">Extension</a></li>
+            <li><a href="CssPersonalizado/">Estilo personalizado de css</a></li>
+            <li><a href="miweb/">Mi web</a></li>
 
             
             https://igoles.wordpress.com/2008/04/23/a-little-php-magicweb-crawler/ <br>

@@ -1,0 +1,198 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 20 oct. 2015, 17:43:03
+    Author     : dagueda
+*/
+
+            body{
+                font-family: arial,verdana,sans-serif;
+                font-size: medium;
+                
+            }
+            h1,
+            h2,
+            h3,
+            h4{
+                font-weight: normal;
+                color: #444;
+            }
+            h1{
+                font-size: 2.5em;
+            }
+            h2{
+                font-size: 1.8em;
+            }
+            h3{
+                font-size: 1.5em;
+            }
+            h4{
+                font-size: 1.2em;
+            }
+            /* boton */
+            input[type="button"]{
+                padding: 7px;
+                background-color: #fff;
+                border-style: solid;
+                border-color: #3399ff;
+                border-width: 3px;
+                border-radius: 7px;
+                font-family: arial,verdana,sans-serif;
+                font-size: medium;
+                color: #3399ff;
+            }
+            input[type="button"]:hover{
+                background-color: #3399ff;
+                cursor: pointer;
+                color: #fff;
+            }
+            /* boton */
+
+            /*checkbox*/
+            input[type="checkbox"]:not(old){
+                width   : 28px;
+                margin  : 0;
+                padding : 0;
+                opacity : 0;
+                cursor:pointer;
+            }
+            input[type="checkbox"]:not(old) + label{
+                display      : inline-block;
+                margin-left  : -2em;
+                line-height  : 1.5em;
+            }
+
+            input[type="checkbox"]:not(old) + label > span
+            {
+                display          : inline-block;
+                width            : 0.875em;
+                height           : 0.875em;
+                margin           : 0.25em 0.5em 0.25em 0.25em;
+                border           : 2px solid #3399ff;
+                border-radius    : 0.25em;
+                background       : #fff;
+                background-color : #fff;
+                vertical-align   : bottom;
+            }
+            input[type="checkbox"]:not(old):checked + label > span{
+                background-color : #fff;
+            }          
+            input[type="checkbox"]:not(old):checked + label > span:before{
+                content     : '✓';
+                display     : block;
+                width       : 0.5em;
+                color       : #33ff33;
+                font-size   : 1.5em;
+                line-height : 0.5em;
+                text-align  : center;
+                font-weight : bold;
+                text-shadow:  0 0 1px #000;
+            }
+            /*checkbox*/
+
+            /*radio*/
+            input[type="radio"] {
+                display             :none;
+            }
+            input[type="radio"] + label >span {
+                display             : inline-block;
+                width               : 0.9em;
+                height              : 0.9em;
+                margin              : 0.25em 0.5em 0.25em 0.25em;
+                vertical-align      : middle;
+                cursor              : pointer;
+                -moz-border-radius  : 5px;
+                border-radius       : 5px;
+                border              : 2px solid #fff;
+            }
+
+            input[type="radio"] + label > span {
+                background-color    : #fff;
+                border              : 2px solid #3399ff;
+            }
+            input[type="radio"]:checked + label > span {
+                -webkit-box-shadow  : 0px 0px 1px #000;
+                -moz-box-shadow     : 0px 0px 1px #000;
+                box-shadow          : 0px 0px 1px #000;
+            }
+            input[type="radio"] + label > span >span{
+                background-color    : #fff;
+            }
+            input[type="radio"]:checked + label > span> span {
+                background-color    : #3399ff;
+                display             : inline-block;
+                width               : 100%;
+                height              : 100%;
+                vertical-align      : super;
+                cursor              : pointer;
+            }
+
+            input[type="radio"] + label >span >span,
+            input[type="radio"]:checked + label >span >span {
+                -webkit-transition  : background-color 0.4s linear;
+                -o-transition       : background-color 0.4s linear;
+                -moz-transition     : background-color 0.4s linear;
+                transition          : background-color 0.4s linear;
+                -webkit-transition  : display 0.4s linear;
+                -o-transition       : display 0.4s linear;
+                -moz-transition     : display 0.4s linear;
+                transition          : display 0.4s linear;
+            }
+            /*radio*/
+
+            /* inputs */    
+            input[type="text"], 
+            input[type="date"], 
+            input[type="datetime"], 
+            input[type="datetime-local"], 
+            input[type="email"],
+            textarea{
+                border              : 2px solid #3399ff;
+                border-radius       : 5px;
+                margin              : 5px;
+                padding             : 5px;
+            }
+            input[type="text"]:focus, 
+            input[type="date"]:focus, 
+            input[type="datetime"]:focus, 
+            input[type="datetime-local"]:focus, 
+            input[type="email"]:focus,
+            textarea:focus{
+                -webkit-box-shadow: 0px 0px 3px #999;
+                -moz-box-shadow: 0px 0px 3px #999;
+                box-shadow: 0px 0px 3px #999;
+            }
+            /* inputs */
+            
+            /* hr */
+            hr {
+                border: 0;
+                height: 2px;
+                background-image: linear-gradient(to right, rgba(51, 153, 255, 0), rgba(51, 153, 255, 1), rgba(51, 153, 255, 1), rgba(51, 153, 255, 0));
+            }
+            /* hr */
+            
+            /*Mi bootstrap*/
+            .carousel-control.right{
+                background-image: none;
+            }
+            .carousel-control.left{
+                background-image: none;
+            }
+
+            .carousel-indicators li{
+                border: 1px solid #3399ff;
+                color:#3399ff;
+            }
+            .carousel-indicators .active{
+                background-color: #3399ff;
+            }
+            /*Mi bootstrap*/
+            .centre{
+                margin  : 0 auto;
+                width   : 250px;
+                height  : 150px;
+            }
