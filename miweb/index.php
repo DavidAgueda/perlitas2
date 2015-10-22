@@ -98,6 +98,7 @@ $Tecnologias = array(
                         <li>Home</li>
                         <li>CV</li>
                         <li>Tecnos</li>
+                        <li>Contacto</li>
                     </ol>
             </nav> 
             <hr>
