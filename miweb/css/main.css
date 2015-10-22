@@ -190,9 +190,30 @@ and open the template in the editor.
             .carousel-indicators .active{
                 background-color: #3399ff;
             }
+            .container {
+                width: 100%;
+            }
             /*Mi bootstrap*/
+            .tecnoImagen{
+                display : block;
+                width   : 120px;
+                height  : 120px;
+            }
             .centre{
                 margin  : 0 auto;
+            }
+            .slideTextSize{
                 width   : 250px;
-                height  : 150px;
+                height  : 250px;
+            }
+            nav li{
+                font-size: 1.8em; 
+                display: inline-block;
+                padding: 5px;
+/*                width: 100px;*/
+                
+            }
+            nav ol{
+                padding: 0;
+                width: 250px;
             }

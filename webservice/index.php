@@ -13,6 +13,7 @@ and open the template in the editor.
         <script src="jquery.soap.js"></script>
     </head>
     <body>
+        <p>Escribir un url</p>
         <form action="" method="GET">
             <input type="text" name="url">
             <input type="submit" name="enviar">
