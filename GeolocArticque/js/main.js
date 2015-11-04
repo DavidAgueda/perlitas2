@@ -131,13 +131,15 @@ function handleFileSelect(evt, str) {
 //      if (!f.type.match('image.*')) {
 //        continue;
 //      }
-
-        console.log(f.type);
-        console.log(f.name);
-
-        if (!testCSV(f)){
+//        console.log(f.type);
+//        console.log(f.name);
+        subfijo = f.name.substr( f.name.indexOf(".")+1).toLowerCase();
+        
+//        console.log(subfijo);
+//        if (!testCSV(f)){
+        if (subfijo != 'csv'){
             
-            $(str).html('<p>Erreur : format de fichier incorrect</p>');
+            $(str).html('<p>Erreur : format de fichier '+ f.name +' incorrect </p>');
             continue;
         }
 

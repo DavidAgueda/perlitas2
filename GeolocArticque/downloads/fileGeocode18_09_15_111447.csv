@@ -1,9 +1,0 @@
-﻿adresse;cp;commune;id_visite;code;latitude;longitude;result_address;result_score;result_type;result_id;result_name;result_street;result_postcode;result_city;result_contex
-11 RUE DU MARAICHER;57530;OGY;291704;C057049;49.104949;6.312688;11 Rue du Maraîcher 57530 Ogy;0.59;housenumber;57523_0048_4d0a99;Rue du Maraîcher;;57530;Ogy;57, Moselle, Lorraine
-2 CHEMIN DE LA BOTTE;57245;MECLEUVES;291712;C057049;49.058305;6.261585;2 Chemin de la Botte 57245 Mécleuves;0.64;housenumber;57454_B115_56e42e;Chemin de la Botte;;57245;Mécleuves;57, Moselle, Lorraine
-35 RUE DES PRIMEVERES;57530;COURCELLES SUR NIED;291793;C057049;49.065603;6.305023;35 Rue des Primevères 57530 Courcelles-sur-Nied;0.69;housenumber;57156_0080_8fec9e;Rue des Primevères;;57530;Courcelles-sur-Nied;57, Moselle, Lorraine
-6 RUE DE PRELE;57140;WOIPPY;291801;C057049;49.168351;6.15015;6 Rue de Prele 57140 Woippy;0.59;housenumber;57751_0534_ddf9f3;Rue de Prele;;57140;Woippy;57, Moselle, Lorraine
-DOMAINE DE CHELAINCOURT;57365;FLEVY;291823;C057049;49.237264;6.278158;Chelaincourt 57365 Flévy;0.43;locality;57219_B014_3f9df6;Chelaincourt;;57365;Flévy;57, Moselle, Lorraine
-100 AVENUE DE STRASBOURG;57000;METZ;291875;C057049;49.112459;6.196595;100 Avenue de Strasbourg 57070 Metz;0.64;housenumber;57463_6505_0b9fdd;Avenue de Strasbourg;;57070;Metz;57, Moselle, Lorraine
-2 IMPASSE GUSTAVE FLAUBERT;58000;NEVERS;291903;C058009;47.000011;3.161779;2 Impasse Gustave Flaubert 58000 Nevers;0.67;housenumber;58194_2565_0c48d3;Impasse Gustave Flaubert;;58000;Nevers;58, Nièvre, Bourgogne
-BAUGY;58130;MONTIGNY AUX AMOGNES;292017;C058009;47.038415;3.284191;Baugy 58130 Montigny-aux-Amognes;0.61;locality;58176_B004_e69b0e;Baugy;;58130;Montigny-aux-Amognes;58, Nièvre, Bourgogne

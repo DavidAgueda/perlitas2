@@ -139,3 +139,24 @@ function filePastToUtf8($updateTemp) {
         fclose($file);
     }
 }
+
+function fileLog($dateLog) {
+    if (($file = fopen('./log/log' . date('Y') . '.txt', "a+")) != false) {
+        fwrite($file, $dateLog);
+        fclose($file);
+    }
+}
+
+function myCurl($url, $post) {
+    $countPost = count($post);
+    $ch = curl_init();
+    curl_setopt($ch, CURLOPT_URL, $url);
+    curl_setopt($ch, CURLOPT_POST, $countPost);
+    curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
+//                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
+    curl_setopt_custom_postfields($ch, $post);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $result = curl_exec($ch);
+    curl_close($ch);
+    return $result;
+}

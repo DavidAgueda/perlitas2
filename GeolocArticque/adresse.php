@@ -71,7 +71,7 @@
         <div class="container">
             <!-- Example row of columns -->
             <div class="row">
-                                <p id="TimeEstimee">Calcul de la durée estimée</p>
+                <p id="TimeEstimee">Calcul de la durée estimée</p>
                 <div id="progress-bar" class="progress">
                     <!--                    <div id="" class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:100%">-->
                     <div id="progress-bar-bar" class="progress-bar progress-bar-striped progress-bar-success active" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width:0%">
@@ -115,11 +115,13 @@ $nameUpdateTemp = 'TMP.csv';
 $updateTemp = 'uploads/' . $nameUpdateTemp;
 $firstLine = '';
 $nLine = 0;
-$limiteSalto = 1000;
+$limiteSalto = $limite = 1000;
 $limite = 1000;
 $numberFiles = 0;
-$contenido = '';
+$teneur = '';
 $entete = '';
+$encodeFile = '';
+$error = 'any';
 if (isset($_POST ['entete'])) {
     $entete = $_POST ['entete'];
 }
@@ -131,27 +133,29 @@ $enclist = array(
     'Windows-1251', 'Windows-1252', 'Windows-1254',
 );
 
+
 if (isset($_FILES['data']) || isset($_POST['url'])) {
     $serverUrl = $_POST['url'];
 
-    if (testCSV($_FILES["data"]["type"])) {
+//    if (testCSV($_FILES["data"]["type"])) {
+    if (strtolower(substr(strrchr($_FILES['data']['name'], '.'), 1)) == 'csv') {
         $tmp_name = $_FILES["data"]["tmp_name"];
         $name = 'TMP.csv';
         if (copy($tmp_name, $updateTemp)) {
 
             filePastToUtf8($updateTemp);
-
-            if (mb_detect_encoding(file_get_contents($updateTemp), $enclist) == 'UTF-8') {
+            $encodeFile = mb_detect_encoding(file_get_contents($updateTemp), $enclist);
+            if ($encodeFile == 'UTF-8') {
 
                 //  Diviser le fichier dans 1000 lines
                 $handle = fopen($updateTemp, 'r');
                 while (($data = fgetcsv($handle, 1000, ";")) !== FALSE) {
                     // Sauver la première ligne
-
+                    $countData = count($data);
                     $content = '';
                     if ($nLine == 0) {
-                        for ($i = 0; $i < count($data); $i++) {
-                            if ($i != (count($data) - 1)) {
+                        for ($i = 0; $i < $countData; $i++) {
+                            if ($i != ($countData - 1)) {
                                 $firstLine.= $data[$i] . ';';
                             } else {
                                 $firstLine.= $data[$i];
@@ -160,7 +164,7 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
                     } else {
                         $content = '';
                         for ($j = 0; $j < count($data); $j++) {
-                            if ($j != (count($data) - 1)) {
+                            if ($j != ($countData - 1)) {
                                 $content .= $data[$j] . ';';
                             } else {
                                 $content .=$data[$j];
@@ -168,43 +172,44 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
                         }
                     }
 
-                    $contenido .= $content . PHP_EOL;
+                    $teneur .= $content . PHP_EOL;
 
                     //  Gréér le fichier de 1000 lines
                     if ($nLine++ == $limiteSalto) {
                         $limiteSalto += $limite;
 
                         if ($entete == 'true' && $numberFiles == 0) {
-                            $contenido = $firstLine . PHP_EOL . $firstLine . $contenido;
+                            $teneur = $firstLine . PHP_EOL . $firstLine . $teneur;
                         } else {
-                            $contenido = $firstLine . $contenido;
+                            $teneur = $firstLine . $teneur;
                         }
 
                         if (($file = fopen('uploads/temp/temp' . $numberFiles++ . $namePc . $dateTemp . '.csv', "c+")) == false) {
                             echo '<script>$("h1").html("Erreur impossible de créer des fichiers temporaires");'
                             . ' $("#progress-bar").hide(); </script>';
+                            $error = 'Erreur impossible de créer des fichiers temporaires';
                             cleanFilesTemp($namePc . $dateTemp);
                             break;
                         };
-                        fwrite($file, $contenido);
+                        fwrite($file, $teneur);
                         fclose($file);
-                        $contenido = PHP_EOL;
+                        $teneur = PHP_EOL;
                     }
                 }
 
 
-                if ($contenido != PHP_EOL || $contenido != '') {
+                if ($teneur != PHP_EOL || $teneur != '') {
                     if ($numberFiles > 0) {
                         $file = fopen('uploads/temp/temp' . $numberFiles++ . $namePc . $dateTemp . '.csv', "c+");
-                        fwrite($file, $firstLine . $contenido);
+                        fwrite($file, $firstLine . $teneur);
                         fclose($file);
                     } else {
                         $file = fopen('uploads/temp/temp' . 0 . $namePc . $dateTemp . '.csv', "c+");
 
                         if ($entete == 'true' && $numberFiles == 0) {
-                            fwrite($file, $firstLine . PHP_EOL . $firstLine . $contenido);
+                            fwrite($file, $firstLine . PHP_EOL . $firstLine . $teneur);
                         } else {
-                            fwrite($file, $firstLine . $contenido);
+                            fwrite($file, $firstLine . $teneur);
                         }
 
                         fclose($file);
@@ -214,7 +219,7 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
 
                 // Assigne les données POST
                 //  Utiliser le service Web
-                $contenidodescarga = '';
+                $teneurdescarga = '';
                 for ($i = 0; $i < $numberFiles; $i++) {
                     //  Mis à jour de la barre de progression.
                     $porcentaje = $i * 100 / $numberFiles;
@@ -235,21 +240,34 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
                         'data' => '@uploads/temp/temp' . $i . $namePc . $dateTemp . '.csv',
                         'columns' => $columns);
 
-                    $ch = curl_init();
-                    curl_setopt($ch, CURLOPT_URL, $serverUrl);
-                    curl_setopt($ch, CURLOPT_POST, count($post));
-                    curl_setopt($ch, CURLOPT_SAFE_UPLOAD, false);
-//                curl_setopt($ch, CURLOPT_POSTFIELDS, $post);
-                    curl_setopt_custom_postfields($ch, $post);
-                    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-                    $result = curl_exec($ch);
-                    curl_close($ch);
+//                    echo'<p>temp' . $i . $namePc . $dateTemp . '.csv</p>';
+                    $countPost = count($post);
+                    try {
+                        $result = myCurl($serverUrl, $post);
+                    } catch (Exception $e) {
+                        echo 'Exception attrapé : ', $e->getMessage(), "\n";
+                        $error = $e->getMessage();
+                    }
+
+                    if (strpos($result, 'Internal Server Error') !== FALSE) {
+                        cleanFilesTemp($namePc . $dateTemp);
+                        echo '<script>$("h1").html("Il ya eu une erreur interne sur le serveur, s\'il vous plaît vérifier le format du fichier <br/ ><small>Le géocodeur ne prend pas en compte les \";\" comme une chaîne caractères.</small>");'
+                        . ' $("#progress-bar").hide(); </script>';
+                        $error = 'Il ya eu une erreur interne sur le serveur';
+                        exit();
+                    }
 
                     //      Première ligne de résulta
                     $pos2 = stripos($result, PHP_EOL);
 
                     //      Construire fichier de réponse
-                    $contenidodescarga.=substr($result, $pos2);
+                    try {
+                        $teneurdescarga.=substr($result, $pos2 + 2);
+                    } catch (Exception $e) {
+                        echo 'Exception attrapé : ', $e->getMessage(), "\n";
+                        $error = $e->getMessage();
+                    }
+
                     if ($i == 0) {
                         $firstLineResult = substr($result, 0, $pos2 - 1);
                         echo "<script>$('#TimeEstimee').html('Durée approximative du processus " . pastHours((strtotime('now') - strtotime($timeDebut)) * $numberFiles) . "')</script>";
@@ -257,11 +275,12 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
                 }
                 // Créér fichier Geocodé 
                 if (($file = fopen($folderDownloads . $fileDownloads, "c+")) != false) {
-                    fwrite($file, $firstLineResult . $contenidodescarga);
+                    fwrite($file, $firstLineResult . $teneurdescarga);
                     fclose($file);
                 } else {
                     echo '<script>$("h1").html("Erreur impossible de créer le fichier");'
                     . ' $("#progress-bar").hide(); </script>';
+                    $error = 'Erreur impossible de créer le fichier';
                 }
                 cleanFilesTemp($namePc . $dateTemp);
                 echo "<script>callprogress(" . round(100) . ")</script>";
@@ -269,17 +288,34 @@ if (isset($_FILES['data']) || isset($_POST['url'])) {
             } else {
                 echo '<script>$("h1").html("Erreur encodage de fichier incorrect <br/><small>' . mb_detect_encoding(file_get_contents($updateTemp), $enclist) . ' Le format correct est UTF-8</small> ");'
                 . ' $("#progress-bar").hide(); </script>';
+                $error = 'Erreur encodage de fichier incorrect';
             }
         } else {
             echo '<script>$("h1").html("Erreur Impossible de copier le fichier");'
             . ' $("#progress-bar").hide(); </script>';
+            $error = 'Erreur Impossible de copier le fichier';
         }
     } else {
         echo '<script>$("h1").html("Erreur format de fichier incorrect");'
         . ' $("#progress-bar").hide(); </script>';
+        $error = 'Erreur format de fichier incorrect';
     }
 } else {
     echo '<script>$("h1").html("Erreur dans la lecture de fichier");'
     . ' $("#progress-bar").hide(); </script>';
+    $error = 'Erreur dans la lecture de fichier';
+}
+
+/* File log */
+
+if ($error != 'any') {
+    require_once './class/connection.php';
+    require_once './class/log.php';
+    
+        $con = new connection();
+        $con->connect();
+        $log = new log($con->gbd,date('d/m/y H:i:s'),$namePc,$_FILES["data"]["name"],$encodeFile, $nLine,(pastHours((strtotime('now') - strtotime($timeDebut)))),$error );
+        $log->setInDB();
+        $log = null;
 }
 ?> 

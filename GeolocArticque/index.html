@@ -73,7 +73,8 @@
                 <div class="col-md-6">
                     <h2>Retourne des coordonnées, grâce aux adresses.</h2>
                     <form id='formSearchCsv' action="adresse.php" method="post" enctype="multipart/form-data">
-                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/search/csv/"/> 
+<!--                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/search/csv/"/> -->
+                        <input hidden="" type="text" name="url" value="http://api-adresse.data.gouv.fr/search/csv/"/> 
                         <p id="contentColumnsSlips">Glisser un fichier ici, ou choisir un chemin de destination’</p>
                         <input id ='fileSearch' class=" searchFile" type="file" name="data" 
                                onchange="handleFileSelect(event, '#contentColumns')" /> 
@@ -85,7 +86,8 @@
                 <div class="col-md-6">
                     <h2>Retourne des adresses, grâce aux coordonnées.</h2>
                     <form action="adresse.php" method="post" enctype="multipart/form-data">
-                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/reverse/csv/"/> 
+<!--                        <input hidden="" type="text" name="url" value="http://10.37.5.11:8000/reverse/csv/"/> -->
+                        <input hidden="" type="text" name="url" value="http://api-adresse.data.gouv.fr/reverse/csv/"/> 
                         <p  id="contentColumns2Slips">Glisser un fichier ici, ou choisir un chemin de destination’</p>
                         <input id ='fileReverse' class="searchFile" type="file" name="data" onchange="handleFileSelect(event, '#contentColumns2')" /> 
                         <p id='contentColumns2'></p>

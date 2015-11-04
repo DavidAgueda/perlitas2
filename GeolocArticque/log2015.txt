@@ -1,0 +1,7 @@
+Date 12/10/15 10:23:43
+   NamePc DAVID-PC
+   NameFile 
+   Encode 
+   Total number rows 0
+   Processing time 0:0:0
+   Error Erreur format de fichier incorrect

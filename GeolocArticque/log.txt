@@ -1,0 +1,58 @@
+Date 08/10/15 14:50:35
+ NamePc DAVID-PC
+ NameFiletemp665DAVID-PC071015173717.csv Encode UTF-8
+ Total number rows 1001
+ Error any
+Date 08/10/15 14:53:31
+ NamePc DAVID-PC
+ NameFiletemp665DAVID-PC071015173717.csv Encode UTF-8
+ Total number rows 1001
+ Error any
+Date 08/10/15 15:01:27
+   NamePc DAVID-PC
+   NameFile temp665DAVID-PC071015173717.csv Encode UTF-8
+   Total number rows 1001
+   Processing time 0:0:46
+   Error any
+Date 08/10/15 15:07:29
+   NamePc DAVID-PC
+   NameFile CLIENT_TABLE_5500.csv
+   Encode UTF-8
+   Total number rows 5500
+   Processing time 0:4:11
+   Error any
+Date 08/10/15 15:12:04
+   NamePc DAVID-PC
+   NameFile 
+   Encode 
+   Total number rows 0
+   Processing time 0:0:0
+   Error Erreur format de fichier incorrect
+Date 08/10/15 15:12:36
+   NamePc DAVID-PC
+   NameFile logoArticque.xcf
+   Encode 
+   Total number rows 0
+   Processing time 0:0:0
+   Error Erreur format de fichier incorrect
+Date 12/10/15 09:42:15
+   NamePc DAVID-PC
+   NameFile 
+   Encode 
+   Total number rows 0
+   Processing time 0:0:1
+   Error Erreur format de fichier incorrect
+Date 12/10/15 09:44:39
+   NamePc DAVID-PC
+   NameFile 
+   Encode 
+   Total number rows 0
+   Processing time 0:0:0
+   Error Erreur format de fichier incorrect
+Date 12/10/15 10:22:42
+   NamePc DAVID-PC
+   NameFile 
+   Encode 
+   Total number rows 0
+   Processing time 0:0:0
+   Error Erreur format de fichier incorrect
