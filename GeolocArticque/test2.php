@@ -40,5 +40,7 @@ and open the template in the editor.
 //        $user->setInDB();
         // put your code here
         ?>
+        
+        
     </body>
 </html>

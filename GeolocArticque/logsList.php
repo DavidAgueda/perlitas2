@@ -10,7 +10,7 @@
 
     if ($_SESSION['viewLogin'] == null) {
         header('Location: index.html');
-    }else{
+    } else {
         
     }
 
@@ -18,34 +18,34 @@
         $_SESSION['viewLogin'] = null;
         header('Location: index.html');
     }
-    
+
     require_once './class/connection.php';
     require_once './class/log.php';
     require_once './class/tableau.php';
-    
+
     $con = new connection();
     $con->connect();
 //    $con->test();
-    
+
     $tableu = new tableau($con->gbd);
-    
-    if(!isset($_GET['pagina'])){
-            $start  = 0;
-            $pagina = 1;
-    }else{
+
+    if (!isset($_GET['pagina'])) {
+        $start = 0;
+        $pagina = 1;
+    } else {
 
         $pagina = $_GET['pagina'];
-        $start = ($pagina-1)* 10;
-        if($_GET['pagina'] == 0 || $_GET['pagina'] == ''){
-            $start  = 0;
+        $start = ($pagina - 1) * 10;
+        if ($_GET['pagina'] == 0 || $_GET['pagina'] == '') {
+            $start = 0;
             $pagina = 1;
         }
     }
-    $table  = $tableu->printTableau($start);
-    $pageBefore = $pagina-1;
-    $pageNext   = $pagina+1;
-    $before = '<a href="logsList.php?pagina=' .$pageBefore.  '" >&LT;</a>';
-    $next   = '<a href="logsList.php?pagina=' .$pageNext.    '" >&GT;</a>';
+    $table = $tableu->printTableau($start);
+    $pageBefore = $pagina - 1;
+    $pageNext = $pagina + 1;
+    $before = '<a href="logsList.php?pagina=' . $pageBefore . '" >&LT;</a>';
+    $next = '<a href="logsList.php?pagina=' . $pageNext . '" >&GT;</a>';
     ?>
     <head>
         <meta charset="utf-8">
@@ -125,7 +125,7 @@
                 border: 1px solid #ccc; 
                 width: 20px;
                 height: 20px;
-                
+
             }
 
 
@@ -134,6 +134,7 @@
         <link rel="stylesheet" href="css/main.css">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+        <script src="js/vendor/Chart.js"></script>
     </head>
     <body>
         <!--[if lt IE 8]>
@@ -163,22 +164,28 @@
 
         <div class="container">
             <!-- Example row of columns -->
+
             <div class="row">
-            <?php
-            $totalPage = ceil($tableu->dbRow / $tableu->sizePage);
-            if ($pagina == $totalPage){
-                $next='';
-            }
-            if ($pagina == 1){
-                $before='';
-            }
-            echo '<p>'.$before.' Page '.$pagina.' of '.$totalPage.' '.$next.' </p>';
-            ?>
+                <div class="canvas-holder">
+                    <canvas id="canvas" width="647" height="323" style="width: 647px; height: 323px;"></canvas>
+                </div>
             </div>
             <div class="row">
-            <?php 
+                <?php
+                $totalPage = ceil($tableu->dbRow / $tableu->sizePage);
+                if ($pagina == $totalPage) {
+                    $next = '';
+                }
+                if ($pagina == 1) {
+                    $before = '';
+                }
+                echo '<p>' . $before . ' Page ' . $pagina . ' of ' . $totalPage . ' ' . $next . ' </p>';
+                ?>
+            </div>
+            <div class="row">
+                <?php
                 print $table
-            ?>
+                ?>
             </div>
 
             <hr>
@@ -191,6 +198,9 @@
 
         <script src="js/vendor/bootstrap.min.js"></script>
         <script src="js/main.js"></script>
+        <script>
+            console.log('');
+        </script>
         <!--        <script src="js/DropArea.js"></script>
                 <script src="js/DropArea2.js"></script>-->    
 
