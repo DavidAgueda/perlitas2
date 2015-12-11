@@ -18,7 +18,7 @@ and open the template in the editor.
                 float:left;
                 padding: 1px;
             }
-            
+
         </style>
     </head>
     <body>
@@ -44,35 +44,49 @@ and open the template in the editor.
 
 
         <script>
-            var color =["orange","red","blue","green","yellow"];
-            
+            var colores = ["orange", "red", "blue", "green", "yellow"];
+
             function aleatorio() {
                 var aleatorio = Math.round(Math.random() * 5);
                 return aleatorio;
             }
 
-            $('document').ready(function (){
+            $('document').ready(function () {
                 var table = new Array();
-                var row = $('#row');
+//                var row = $('#row');
 
                 for (var i = 0; i < 5; i++) {
                     table[i] = new Array();
                     for (var j = 0; j < 5; j++) {
+                        var color = colores[aleatorio()];
+                        table[i][j] = color;
+//
+//                        var div3 = $("<div />");
+//                        div3.cuadricula({type: color})
+//                        row.append(div3);
 //                    table[i][j] = aleatorio();
+                    }
+//                    var br = $("<br />");
+//                    row.append(br);
+                }
 
+                for (var i = 0; i < table.length; i++) {
+                    var row = $('#row');
+                    for (var j = 0; j < table[i].length; j++) {
                         var div3 = $("<div />");
-                        div3.cuadricula({type: color[aleatorio()]})
+                        div3.cuadricula({type: table[i][j]});
                         row.append(div3);
-//                    table[i][j] = aleatorio();
                     }
                     var br = $("<br />");
                     row.append(br);
                 }
-            
-            });
-                
 
-//            console.log(table);
+                console.log(table);
+
+            });
+
+
+
         </script>
     </body>
 </html>
