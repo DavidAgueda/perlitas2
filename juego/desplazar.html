@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>
+            Ejemplo
+            <div id="tabla" style="border: 0 solid #ffffff; position: absolute; top: 100px; left: 100px;">
+                <table summary="contenido" border="0" cellspacing="0" cellpadding="0" align="center">
+                    <tbody>
+                        <tr>
+                            <td></td>
+                            <td onclick="moverArriba()" style="background-color: red" width="20" height="20"><!--<img src="arriba.gif" alt="" />--></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td onclick="moverIzquierda()" style="background-color: red" width="20" height="20"><!--<img src="izquierda.gif" alt="" />--></td>
+                            <td></td>
+                            <td onclick="moverDerecha()" style="background-color: red" width="20" height="20"><!--<img src="derecha.gif" alt="" />--></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td onclick="moverAbajo()" style="background-color: red" width="20" height="20"><!--<img src="abajo.gif" alt="" />--></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <script type="text/javascript">
+                var elementoDiv = document.getElementById('tabla');
+                function moverArriba() {
+                    elementoDiv.style.top = elementoDiv.offsetTop - 10;
+                    console.log(elementoDiv.offsetTop);
+                }
+                function moverAbajo() {
+                    elementoDiv.style.top = elementoDiv.offsetTop + 10;
+                }
+                function moverDerecha() {
+                    elementoDiv.style.left = elementoDiv.offsetLeft + 10;
+                }
+                function moverIzquierda() {
+                    elementoDiv.style.left = elementoDiv.offsetLeft - 10;
+                }
+            </script>
+    </body>
+</html>
