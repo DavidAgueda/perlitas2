@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <body>
-
+    <p>limite de 5MB</p>
+    <p>1Mb mas o menos 1048576 caracteres</p>
 <div id="result"></div>
 
 <script>
@@ -12,7 +13,7 @@ if (typeof(Storage) !== "undefined") {
     // Retrieve
     nombre = JSON.parse(localStorage.getItem("lastname"));
     console.log(nombre);
-    document.getElementById("result").innerHTML = nombre[0].firstName;
+    document.getElementById("result").innerHTML = nombre[1].firstName;
 } else {
     document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
 }
