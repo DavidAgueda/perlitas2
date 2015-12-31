@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    </head>
+    <body>
+
+        <div data-role="page" id="home">
+
+            <!--Panel oculto en la derecha-->    
+            <div data-role="panel" id="myPanel" data-position="left"> 
+                <h2>Panel Header</h2>
+                <p>You can close the panel by clicking outside the panel, pressing the Esc key, by swiping, or by clicking the button below:</p>
+                <a href="#pageone" data-rel="close" class="ui-btn ui-btn-inline ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left">Close panel</a>
+            </div>
+
+            <!--Pagina-->
+            <div data-role="header">
+                <h1>Home</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" >Home</a></li>
+                        <li><a href="#List" >List</a></li>
+                        <li><a href="#Nosotros" >Nosotros</a></li>
+                        <li><a href="#Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Click on the link to see the flip effect.</p>
+                <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>
+                <a href="#pagetwo" data-transition="flip">Flip to Page Two</a>
+            </div>
+
+            <div data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+
+        <div data-role="page" id="Nosotros">
+            <div data-role="header">
+                <h1>Nosotros</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" >Home</a></li>
+                        <li><a href="#List" >List</a></li>
+                        <li><a href="#Nosotros" >Nosotros</a></li>
+                        <li><a href="#Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
+                <a href="#pageone" data-transition="flip">Go back to Page One</a>
+            </div>
+
+            <div data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+
+        <div data-role="page" id="List">
+
+            <div data-role="header">
+                <h1>List</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" >Home</a></li>
+                        <li><a href="#List" >List</a></li>
+                        <li><a href="#Nosotros" >Nosotros</a></li>
+                        <li><a href="#Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
+                <a href="#pageone" data-transition="flip">Go back to Page One</a>
+            </div>
+
+            <div data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+
+        <div data-role="page" id="Contact">
+            <div data-role="header">
+                <h1>Contacto</h1>
+                <div data-role="navbar">
+                    <ul>
+                        <li><a href="#home" >Home</a></li>
+                        <li><a href="#List" >List</a></li>
+                        <li><a href="#Nosotros" >Nosotros</a></li>
+                        <li><a href="#Contact" >Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
+                <a href="#pageone" data-transition="flip">Go back to Page One</a>
+            </div>
+
+            <div data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+
+    </body>
+</html>
