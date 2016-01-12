@@ -9,6 +9,9 @@ and open the template in the editor.
         <title>TODO supply a title</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        
         <script src="../gems-swapper-master/assets/js/vendor/jquery.min.js" type="text/javascript"></script>
         <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
@@ -19,11 +22,17 @@ and open the template in the editor.
                 padding: 1px;
             }
 
+            .row{
+                margin: 5px;
+                //float:left;
+            }
+
         </style>
     </head>
     <body>
         <div>TODO write content</div>
-        <div id="row"></div>
+        <div id="print"></div>
+        <div id="toto"></div>
 
 
         <script>
@@ -38,7 +47,13 @@ and open the template in the editor.
                             .css("color", this.options.type)
                             .html(this.options.contenu);
                     this.element.click(this._functionClick);
+                    //this.click(_printColor());
+                },
+                _printColor : function (){
+                    $("#print").html(this.options.contenu);
+                    $("#print").css({ "background-color": this.options.contenu});
                 }
+                
             });
         </script>
 
@@ -71,13 +86,17 @@ and open the template in the editor.
                 }
 
                 for (var i = 0; i < table.length; i++) {
-                    var row = $('#row');
+                    var toto = $('#toto');
+                    var row = $('<div />');
+                    row.addClass('row');
                     for (var j = 0; j < table[i].length; j++) {
                         var div3 = $("<div />");
                         div3.cuadricula({type: table[i][j]});
                         row.append(div3);
                     }
                     var br = $("<br />");
+                    
+                    toto.append(row);
                     row.append(br);
                 }
 
