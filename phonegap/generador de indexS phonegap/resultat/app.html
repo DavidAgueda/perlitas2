@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' my-server-url.ss.yy.com:8080  data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src *">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <link href="css/jquery.mobile-1.4.5.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/libs/jquery/jquery-1.11.3.min.js" type="text/javascript"></script>
+        <script src="js/libs/jquery/jquery.mobile-1.4.5.min.js" type="text/javascript"></script>
+
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <style>
+            .center{
+                margin-left: auto;
+                margin-right: auto;
+                align:center;
+                text-align:center;
+            }
+            #nav > a{
+                border: 2px solid #0099cc;
+                border-radius: 5px;
+                background-color: #fff;
+                font-size: 0.8em;
+                box-shadow: 0px 0px 3px #0099cc; 
+            }
+            img{ 
+                border-top: 2px solid #0099cc;
+                border-bottom: 2px solid #0099cc;
+            }
+            .mainImg{
+                width: 100%;
+            }
+            #mainPageOne{
+                margin: 0px;
+                padding: 0px;
+            }
+            .footer{
+                width: 100%;
+                position: fixed;
+                bottom: 0px;
+            }
+        </style>
+
+
+        <title>Hello World</title>
+
+    </head>
+    <body>
+
+        <div data-role="page" id="pageone">
+            <div data-role="header">
+                <h1>Welcome To My Homepage</h1>
+            </div>
+            <div  data-role="nav" class="center" id="nav">
+                <a href="#pagetwo" class=" ui-btn ui-btn-inline miBtn">Shop</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">About us</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">Contact</a>
+            </div>
+            <div id="mainPageOne" data-role="main" class="ui-content">
+                <img class="mainImg" src="img/main.jpg" alt=""/>
+                <ul>
+                    <li><a href="http://tobiasahlin.com/spinkit/">ejemplos de carga css</a></li>
+                    <li><a href="http://codepen.io/collection/HtAne/">muchos ejemplos</a></li>
+                </ul>
+                <p>Click on the link to see the flip effect.</p>
+                <a href="#pagetwo" data-transition="flip">Flip to Page Two</a>
+            </div>
+
+            <div class="footer" data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+
+        <div data-role="page" id="pagetwo">
+            <div data-role="header">
+                <h1>Welcome To My Homepage</h1>
+            </div>
+
+            <div data-role="main" class="ui-content">
+                <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
+                <a href="#pageone">Go back to Page One</a>
+            </div>
+
+            <div  data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+        <script src="js/app.js" type="text/javascript"></script>
+    </body>
+</html>
