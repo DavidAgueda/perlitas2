@@ -13,8 +13,8 @@ $().ready(function(){
         console.log("no storage");
     }
     
-    localStorage.colorload = "#0000ff";
-    localStorage.H1tile = "Superman";
+    localStorage.colorload = "#ff0000";
+    localStorage.H1tile = "formation";
 
     $("body").css("background-color",localStorage.colorload);
     $("h1").html(localStorage.H1tile);

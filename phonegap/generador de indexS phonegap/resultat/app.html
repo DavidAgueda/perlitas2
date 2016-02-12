@@ -40,7 +40,11 @@
         <link rel="stylesheet" type="text/css" href="css/index.css">
 
         <style>
+            *{
+                text-shadow: none;
+            }
             .center{
+                width: 100%;
                 margin-left: auto;
                 margin-right: auto;
                 align:center;
@@ -69,6 +73,62 @@
                 position: fixed;
                 bottom: 0px;
             }
+            .imgCategory{
+                position: relative;
+                right: -1200px;
+                width: 100%;
+            }
+            .h2Category{
+                z-index: 2;
+                position: absolute;
+                bottom : 1000px;
+                border: 1px solid #2d6898;
+                background-color: #538fbe;
+            }
+            .categorys{
+                z-index: 1;
+                position: relative;
+            }
+            .categorys a:link, .categorys a:visited, .categorys a:hover, .categorys a:active  {
+                color: #000;
+               
+            }
+            
+            .imgProduit{
+                width: 100%;
+            }
+
+
+            /*            .center{
+                            margin-left: auto;
+                            margin-right: auto;
+                            align:center;
+                            text-align:center;
+                        }
+            
+                        #nav{
+                            width: 100%;
+                            padding: auto;
+                            padding-top: 10px;
+                            background-color: #ccc;
+                            position:fixed;
+                            bottom: 0px;
+                        }
+            
+                        .footer{
+                            visibility: hidden;
+                        }
+                        #nav>a {
+                            z-index: -1;
+                            margin: auto;
+                            border-radius: 20px 20px 0px 0px;
+                            padding-bottom: 5px;
+                            box-shadow: 2px 3px 3px  #aaa inset;
+                        }
+                        a.active {
+                            padding-bottom: 10px !important;
+                        }*/
+
         </style>
 
 
@@ -80,9 +140,10 @@
         <div data-role="page" id="pageone">
             <div data-role="header">
                 <h1>Welcome To My Homepage</h1>
+                <!--<a href="#anylink" class="ui-btn ui-icon-refresh ui-btn-icon-left">Refresh Page</a>-->
             </div>
             <div  data-role="nav" class="center" id="nav">
-                <a href="#pagetwo" class=" ui-btn ui-btn-inline miBtn">Shop</a>
+                <a href="#pagetwo" class="active ui-btn ui-btn-inline miBtn">Shop</a>
                 <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">About us</a>
                 <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">Contact</a>
             </div>
@@ -105,10 +166,31 @@
             <div data-role="header">
                 <h1>Welcome To My Homepage</h1>
             </div>
+            <div  data-role="nav" class="center" id="nav">
+                <a href="#pageone" class="active ui-btn ui-btn-inline miBtn">Home</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">About us</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">Contact</a>
+            </div>
+            <div id="mainPageTwo" data-role="main" class="ui-content">
 
-            <div data-role="main" class="ui-content">
-                <p>Click on the link to go back. <b>Note</b>: fade is default.</p>
-                <a href="#pageone">Go back to Page One</a>
+            </div>
+
+            <div  data-role="footer">
+                <h1>Footer Text</h1>
+            </div>
+        </div> 
+        
+        <div data-role="page" id="pageThree">
+            <div data-role="header">
+                <h1>TETE</h1>
+            </div>
+            <div  data-role="nav" class="center" id="nav">
+                <a href="#pageone" class="active ui-btn ui-btn-inline miBtn">Home</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">Shop</a>
+                <a href="#pagetwo" class="miBtn ui-btn ui-btn-inline ">Contact</a>
+            </div>
+            <div id="mainPageThree" data-role="main" class="ui-content">
+
             </div>
 
             <div  data-role="footer">
